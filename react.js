@@ -325,7 +325,7 @@ function _setDetailImage(product, colorName) {
     t.innerHTML = '';
     const src = photos[idx % photos.length];
     const i = document.createElement('img');
-    i.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:6px';
+    i.style.cssText = 'width:100%;height:100%;object-fit:contain;border-radius:6px;padding:4px';
     i.src = src;
     i.onclick = () => { if (img) img.src = src; };
     t.appendChild(i);
@@ -395,7 +395,7 @@ function renderCartItems() {
     const cartImgSrc = cartImgData ? cartImgData.img : '';
     return `
     <div class="cart-item">
-      <div class="cart-item-img">${cartImgSrc ? `<img src="${cartImgSrc}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-sm)">` : '<div class="cart-item-img-inner"></div>'}</div>
+      <div class="cart-item-img">${cartImgSrc ? `<img src="${cartImgSrc}" alt="${item.name}" style="width:100%;height:100%;object-fit:contain;padding:6px;border-radius:var(--radius-sm)">` : '<div class="cart-item-img-inner"></div>'}</div>
       <div class="cart-item-info">
         <div class="cart-item-name">${item.name}</div>
         <div class="cart-item-sub">${item.storage}${item.color ? ` · ${dot}${item.color}` : ''}</div>
@@ -569,7 +569,7 @@ function renderAdminTable() {
       <td>
         <div class="admin-product-img">
           <img src="${cd.img}" alt="${p.name}"
-            style="width:100%;height:100%;object-fit:cover;border-radius:6px"
+            style="width:100%;height:100%;object-fit:contain;padding:4px;border-radius:6px"
             onerror="this.parentElement.innerHTML=\'<div class=admin-img-placeholder>📱</div>\'">
         </div>
       </td>
