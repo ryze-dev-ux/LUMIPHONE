@@ -983,6 +983,10 @@ footer {
   max-width: 480px;
   border: 1px solid var(--gray-100);
 }
+.auth-register-grid {
+  display: flex; flex-direction: column; gap: 16px;
+  margin-bottom: 28px;
+}
 .auth-tabs {
   display: flex;
   background: var(--gray-50);
