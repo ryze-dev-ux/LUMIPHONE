@@ -395,7 +395,7 @@ function renderCartItems() {
     const cartImgSrc = cartImgData ? cartImgData.img : '';
     return `
     <div class="cart-item">
-      <div class="cart-item-img">${cartImgSrc ? `<img src="${cartImgSrc}" alt="${item.name}" style="width:100%;height:100%;object-fit:contain;padding:6px;border-radius:var(--radius-sm)">` : '<div class="cart-item-img-inner"></div>'}</div>
+      <div class="cart-item-img">${cartImgSrc ? `<img src="${cartImgSrc}" alt="${item.name}" class="cart-item-real-img">` : '<div class="cart-item-img-inner"></div>'}</div>
       <div class="cart-item-info">
         <div class="cart-item-name">${item.name}</div>
         <div class="cart-item-sub">${item.storage}${item.color ? ` · ${dot}${item.color}` : ''}</div>
