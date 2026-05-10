@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LumiPhone — Premium Apple Store</title>
+<meta name="description" content="Os iPhones mais recentes com garantia oficial, entrega rápida e suporte especializado.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<nav id="mainNav">
+  <div class="nav-logo">Lumi<span>Phone</span></div>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home')">Início</a></li>
+    <li><a href="#" onclick="showPage('catalog')">Catálogo</a></li>
+    <li><a href="#" onclick="showPage('about')">Sobre</a></li>
+    <li><a href="#" onclick="showPage('contact')">Contato</a></li>
+    <li><a href="#" onclick="goToAdmin()" style="color:var(--accent-dark);font-weight:600" id="adminNavLink">⚙ Admin</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-btn" id="darkToggleBtn" onclick="toggleDark()" title="Alternar modo escuro">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="nav-btn" onclick="showPage('catalog')" title="Buscar">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+    <button class="nav-btn cart-badge" onclick="openCart()" title="Carrinho">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <button class="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+
+<div id="page-home" class="page active">
+
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">Bem-vindo à LumiPhone</div>
+        <h1 class="hero-title">
+          O iPhone dos seus <em>sonhos</em>,<br>na palma das suas mãos.
+        </h1>
+        <p class="hero-subtitle">
+          Descubra os modelos mais recentes com garantia oficial Apple, entrega expressa e suporte especializado 24h. Tecnologia premium ao seu alcance.
+        </p>
+        <div class="btn-group">
+          <button class="btn-primary" onclick="showPage('checkout')">Comprar Agora</button>
+          <button class="btn-secondary" onclick="showPage('catalog')">Ver Catálogo →</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <div class="phone-icon"></div>
+            <div class="phone-label">iPhone 16 Pro</div>
+            <div class="phone-price">R$ 9.499</div>
+          </div>
+        </div>
+        <div class="float-badge float-badge-1">
+          <div class="badge-text">Garantia</div>
+          <div class="badge-value">12 meses</div>
+        </div>
+        <div class="float-badge float-badge-2">
+          <div class="badge-text">Entrega</div>
+          <div class="badge-value">Express 24h</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <section class="benefits">
+    <div class="section-inner">
+      <div class="section-header" data-animate>
+        <div class="section-tag">Por que escolher a LumiPhone</div>
+        <h2 class="section-title">Uma experiência <em style="font-family:'Playfair Display',serif;font-style:italic">verdadeiramente premium</em></h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card" data-animate>
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="benefit-title">Garantia Oficial</div>
+          <div class="benefit-desc">12 meses de garantia com suporte direto Apple. Produtos 100% originais e lacrados.</div>
+        </div>
+        <div class="benefit-card" data-animate style="transition-delay:.1s">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="benefit-title">Entrega Rápida</div>
+          <div class="benefit-desc">Entrega expressa em até 24h para capitais. Rastreamento em tempo real do seu pedido.</div>
+        </div>
+        <div class="benefit-card" data-animate style="transition-delay:.2s">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="benefit-title">Produtos Originais</div>
+          <div class="benefit-desc">Todos os iPhones com nota fiscal, certificação Anatel e procedência verificada.</div>
+        </div>
+        <div class="benefit-card" data-animate style="transition-delay:.3s">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="benefit-title">Suporte Especializado</div>
+          <div class="benefit-desc">Equipe técnica Apple-certificada disponível 7 dias por semana para ajudar você.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="featured">
+    <div class="section-inner">
+      <div class="section-header" data-animate>
+        <div class="section-tag">Destaques</div>
+        <h2 class="section-title">Ofertas <em style="font-family:'Playfair Display',serif;font-style:italic">imperdíveis</em> de hoje</h2>
+      </div>
+      <div class="promo-grid" data-animate>
+        <div class="promo-card promo-card-main" onclick="viewProduct('iphone16pm')">
+          <div class="promo-visual"></div>
+          <div class="promo-badge">Lançamento</div>
+          <h3 class="promo-title">iPhone 16<br>Pro Max</h3>
+          <p class="promo-price">A partir de R$ 12.499 — ou 12× R$ 1.041</p>
+          <button class="btn-promo">Ver oferta →</button>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div class="promo-card promo-card-small" onclick="viewProduct('iphone15')">
+            <div class="promo-visual-sm"></div>
+            <div class="promo-badge">20% OFF</div>
+            <h4 class="promo-title-sm">iPhone 15</h4>
+            <p class="promo-price">R$ 5.999</p>
+            <button class="btn-promo" style="font-size:12px;padding:6px 14px">Comprar →</button>
+          </div>
+          <div class="promo-card promo-card-small" onclick="viewProduct('iphone14')">
+            <div class="promo-visual-sm"></div>
+            <div class="promo-badge">Mais Vendido</div>
+            <h4 class="promo-title-sm">iPhone 14</h4>
+            <p class="promo-price">R$ 4.499</p>
+            <button class="btn-promo" style="font-size:12px;padding:6px 14px">Comprar →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Lumi<span>Phone</span></div>
+        <p class="footer-desc">A loja premium de iPhones originais com a melhor experiência de compra do Brasil. Tecnologia, estilo e confiança em cada detalhe.</p>
+        <div class="social-links" style="margin-top:20px">
+          <a class="social-link" href="#" title="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a class="social-link" href="#" title="WhatsApp">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </a>
+          <a class="social-link" href="#" title="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a class="social-link" href="#" title="YouTube">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Loja</div>
+        <ul class="footer-links">
+          <li><a href="#" onclick="showPage('catalog')">Catálogo</a></li>
+          <li><a href="#">Lançamentos</a></li>
+          <li><a href="#">Promoções</a></li>
+          <li><a href="#">iPhones Seminovos</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Ajuda</div>
+        <ul class="footer-links">
+          <li><a href="#">Meu Pedido</a></li>
+          <li><a href="#">Trocas e Devoluções</a></li>
+          <li><a href="#">Garantia</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Empresa</div>
+        <ul class="footer-links">
+          <li><a href="#" onclick="showPage('about')">Sobre Nós</a></li>
+          <li><a href="#" onclick="showPage('contact')">Contato</a></li>
+          <li><a href="#">Privacidade</a></li>
+          <li><a href="#">Termos de Uso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 LumiPhone. Todos os direitos reservados.</span>
+      <span>Pagamentos seguros via Stripe &amp; Mercado Pago</span>
+    </div>
+  </footer>
+</div>
+
+
+<div id="page-catalog" class="page">
+  <div class="catalog-hero">
+    <div style="max-width:1280px;margin:0 auto">
+      <h1 class="catalog-title">Catálogo</h1>
+      <p class="catalog-subtitle">Encontre o iPhone perfeito para você</p>
+    </div>
+  </div>
+  <div class="catalog-body" style="max-width:1280px;margin:0 auto">
+   
+    <aside class="filters-panel">
+      <div class="search-box">
+        <span class="search-icon">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </span>
+        <input class="search-input" type="text" id="searchInput" placeholder="Buscar modelo..." oninput="filterProducts()">
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Modelo</span>
+        <div class="filter-options" id="filterModel">
+          <label class="filter-chip active" onclick="setFilter('model','all',this)"><input type="radio" name="model">Todos</label>
+          <label class="filter-chip" onclick="setFilter('model','16',this)"><input type="radio" name="model">iPhone 16</label>
+          <label class="filter-chip" onclick="setFilter('model','15',this)"><input type="radio" name="model">iPhone 15</label>
+          <label class="filter-chip" onclick="setFilter('model','14',this)"><input type="radio" name="model">iPhone 14</label>
+          <label class="filter-chip" onclick="setFilter('model','13',this)"><input type="radio" name="model">iPhone 13</label>
+        </div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Armazenamento</span>
+        <div class="filter-options" id="filterStorage">
+          <label class="filter-chip active" onclick="setFilter('storage','all',this)"><input type="radio" name="storage">Todos</label>
+          <label class="filter-chip" onclick="setFilter('storage','128',this)"><input type="radio" name="storage">128 GB</label>
+          <label class="filter-chip" onclick="setFilter('storage','256',this)"><input type="radio" name="storage">256 GB</label>
+          <label class="filter-chip" onclick="setFilter('storage','512',this)"><input type="radio" name="storage">512 GB</label>
+          <label class="filter-chip" onclick="setFilter('storage','1TB',this)"><input type="radio" name="storage">1 TB</label>
+        </div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Faixa de Preço</span>
+        <div class="filter-options" id="filterPrice">
+          <label class="filter-chip active" onclick="setFilter('price','all',this)">Todos</label>
+          <label class="filter-chip" onclick="setFilter('price','4000',this)">Até R$ 4.000</label>
+          <label class="filter-chip" onclick="setFilter('price','7000',this)">R$ 4.000 – R$ 7.000</label>
+          <label class="filter-chip" onclick="setFilter('price','99999',this)">Acima de R$ 7.000</label>
+        </div>
+      </div>
+    </aside>
+
+
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+        <span id="productCount" style="font-size:14px;color:var(--gray-600)">8 produtos encontrados</span>
+        <select style="padding:8px 14px;border-radius:var(--radius-sm);border:1px solid var(--gray-200);font-family:'DM Sans',sans-serif;font-size:13px;background:var(--white);color:var(--gray-800);outline:none" onchange="sortProducts(this.value)">
+          <option>Ordenar: Relevância</option>
+          <option>Menor Preço</option>
+          <option>Maior Preço</option>
+          <option>Mais Recente</option>
+        </select>
+      </div>
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </div>
+  <footer style="margin-top:80px">
+    <div class="footer-bottom" style="max-width:1280px;margin:0 auto;padding:24px 5%">
+      <span>© 2025 LumiPhone. Todos os direitos reservados.</span>
+      <span>Compra 100% segura</span>
+    </div>
+  </footer>
+</div>
+
+
+<div id="page-product" class="page">
+  <div class="product-detail">
+    <button class="back-btn" onclick="showPage('catalog')">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Voltar ao catálogo
+    </button>
+    <div class="product-detail-grid">
+      <div class="product-gallery">
+        <div class="gallery-main" id="detailGalleryMain">
+          <div class="gallery-main-visual"></div>
+        </div>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb active"><div class="gallery-thumb-inner"></div></div>
+          <div class="gallery-thumb"><div class="gallery-thumb-inner"></div></div>
+          <div class="gallery-thumb"><div class="gallery-thumb-inner"></div></div>
+          <div class="gallery-thumb"><div class="gallery-thumb-inner"></div></div>
+        </div>
+      </div>
+      <div class="product-detail-info">
+        <div class="detail-badge" id="detailBadge">Lançamento 2024</div>
+        <h1 class="detail-name" id="detailName">iPhone 16 Pro Max</h1>
+        <div class="detail-rating">
+          <span class="stars">★★★★★</span>
+          <span id="detailRating">4.9 (312 avaliações)</span>
+        </div>
+        <div>
+          <span class="detail-price-big" id="detailPrice">R$ 12.499</span>
+          <span class="detail-price-old" id="detailOldPrice">R$ 14.999</span>
+        </div>
+        <p class="detail-install" id="detailInstall">ou 12× de R$ 1.041 sem juros no cartão</p>
+        <div class="option-label">Cor</div>
+        <div class="color-options">
+          <div class="color-dot active" style="background:#2D3748" title="Titânio Preto"></div>
+          <div class="color-dot" style="background:#E8E4D9" title="Titânio Natural"></div>
+          <div class="color-dot" style="background:#9BA3AF" title="Titânio Branco"></div>
+          <div class="color-dot" style="background:#B08D6A" title="Titânio Deserto"></div>
+        </div>
+        <div class="option-label">Armazenamento</div>
+        <div class="storage-options">
+          <button class="storage-btn active">256 GB</button>
+          <button class="storage-btn">512 GB</button>
+          <button class="storage-btn">1 TB</button>
+        </div>
+        <div class="detail-actions">
+          <button class="btn-cart-detail" id="detailAddCart" onclick="addFromDetail()">Adicionar ao Carrinho</button>
+          <button class="btn-wishlist-detail">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="benefit-card" style="margin-bottom:24px;text-align:left;padding:16px 20px;display:flex;gap:16px;align-items:center">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--accent-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <div>
+            <div class="benefit-title" style="font-size:14px">Entrega Express</div>
+            <div class="benefit-desc" style="font-size:13px">Receba amanhã — Frete grátis para compras acima de R$ 500</div>
+          </div>
+        </div>
+        <details style="margin-bottom:24px">
+          <summary style="font-size:14px;font-weight:600;color:var(--gray-800);cursor:pointer;padding:12px 0;border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)">Especificações Técnicas</summary>
+          <table class="specs-table" style="margin-top:12px">
+            <tr><td>Chip</td><td id="spec-chip">Apple A18 Pro</td></tr>
+            <tr><td>Tela</td><td id="spec-tela">6.9" Super Retina XDR OLED</td></tr>
+            <tr><td>Câmera</td><td id="spec-cam">48MP + 12MP + 12MP Tetraprism</td></tr>
+            <tr><td>Bateria</td><td id="spec-bat">4.685 mAh — até 33h de uso</td></tr>
+            <tr><td>Resistência</td><td>IP68 — até 6m por 30min</td></tr>
+            <tr><td>5G</td><td>Sim — todas as bandas</td></tr>
+          </table>
+        </details>
+        <div class="reviews-section">
+          <h3 style="font-size:16px;font-weight:700;color:var(--gray-800);margin-bottom:16px">Avaliações dos Clientes</h3>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <div class="reviewer">Ana Carolina M.</div>
+            <div class="review-text">Produto perfeito, chegou no dia seguinte, embalagem impecável. Melhor compra que já fiz! Recomendo a LumiPhone para todos.</div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <div class="reviewer">Roberto K.</div>
+            <div class="review-text">iPhone 16 Pro Max incrível. A câmera é outra dimensão. Atendimento da loja foi excepcional, tiraram todas as dúvidas.</div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★☆</div>
+            <div class="reviewer">Fernanda A.</div>
+            <div class="review-text">Produto original, nota fiscal, tudo certo. Entrega no prazo prometido. Voltarei a comprar com certeza.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="page-checkout" class="page">
+  <div id="checkout-form-view">
+    <div style="max-width:1100px;margin:0 auto;padding:40px 5% 20px">
+      <h1 style="font-family:'Playfair Display',serif;font-size:36px;color:var(--gray-800)">Finalizar Pedido</h1>
+      <p style="color:var(--gray-600);margin-top:6px;display:flex;align-items:center;gap:6px">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Ambiente seguro e criptografado
+      </p>
+    </div>
+    <div class="checkout-body">
+      <div>
+       
+        <div class="checkout-section">
+          <div class="checkout-section-title">Dados Pessoais</div>
+          <div class="form-grid">
+            <div class="form-group"><label>Nome Completo</label><input class="form-input" type="text" placeholder="Seu nome completo"></div>
+            <div class="form-group"><label>CPF</label><input class="form-input" type="text" placeholder="000.000.000-00" oninput="maskCPF(this)"></div>
+            <div class="form-group"><label>E-mail</label><input class="form-input" type="email" placeholder="email@exemplo.com"></div>
+            <div class="form-group"><label>Telefone / WhatsApp</label><input class="form-input" type="tel" placeholder="(11) 99999-9999" oninput="maskPhone(this)"></div>
+          </div>
+        </div>
+       
+        <div class="checkout-section">
+          <div class="checkout-section-title">Endereço de Entrega</div>
+          <div class="form-grid">
+            <div class="form-group"><label>CEP</label><input class="form-input" type="text" placeholder="00000-000" oninput="maskCEP(this)"></div>
+            <div class="form-group form-full"><label>Logradouro</label><input class="form-input" type="text" placeholder="Rua, Avenida..."></div>
+            <div class="form-group"><label>Número</label><input class="form-input" type="text" placeholder="123"></div>
+            <div class="form-group"><label>Complemento</label><input class="form-input" type="text" placeholder="Apto, Bloco..."></div>
+            <div class="form-group"><label>Bairro</label><input class="form-input" type="text" placeholder="Bairro"></div>
+            <div class="form-group"><label>Cidade</label><input class="form-input" type="text" placeholder="Cidade"></div>
+            <div class="form-group"><label>Estado</label>
+              <select class="form-input">
+                <option>SP</option><option>RJ</option><option>MG</option><option>RS</option><option>PR</option><option>SC</option><option>BA</option><option>CE</option><option>AM</option><option>PA</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      
+        <div class="checkout-section">
+          <div class="checkout-section-title">Opções de Entrega</div>
+          <div class="shipping-options">
+            <label class="shipping-opt selected" onclick="selectShipping(this,0,'Grátis')">
+              <input type="radio" name="shipping" checked>
+              <div class="shipping-dot"></div>
+              <div class="shipping-info">
+                <div class="shipping-name">Entrega Express</div>
+                <div class="shipping-time">Receba amanhã (capitais) ou em 2–3 dias</div>
+              </div>
+              <div class="shipping-price">Grátis</div>
+            </label>
+            <label class="shipping-opt" onclick="selectShipping(this,1999,'R$ 19,90')">
+              <input type="radio" name="shipping">
+              <div class="shipping-dot"></div>
+              <div class="shipping-info">
+                <div class="shipping-name">SEDEX — Entrega em 1 dia útil</div>
+                <div class="shipping-time">Garantia de entrega no próximo dia útil</div>
+              </div>
+              <div class="shipping-price">R$ 19,90</div>
+            </label>
+            <label class="shipping-opt" onclick="selectShipping(this,0,'Grátis')">
+              <input type="radio" name="shipping">
+              <div class="shipping-dot"></div>
+              <div class="shipping-info">
+                <div class="shipping-name">Retirar na Loja</div>
+                <div class="shipping-time">Disponível em 2h — Av. Paulista, 1578 – SP</div>
+              </div>
+              <div class="shipping-price">Grátis</div>
+            </label>
+          </div>
+        </div>
+       
+        <div class="checkout-section">
+          <div class="checkout-section-title">Forma de Pagamento</div>
+          <div class="payment-tabs">
+            <button class="pay-tab active" onclick="selectPayment(this,'card')">Cartão</button>
+            <button class="pay-tab" onclick="selectPayment(this,'pix')">PIX</button>
+            <button class="pay-tab" onclick="selectPayment(this,'boleto')">Boleto</button>
+          </div>
+          
+          <div class="pay-panel active" id="pay-card">
+            <div class="form-grid">
+              <div class="form-group form-full"><label>Número do Cartão</label><input class="form-input" type="text" placeholder="0000 0000 0000 0000" oninput="maskCard(this)"></div>
+              <div class="form-group form-full"><label>Nome no Cartão</label><input class="form-input" type="text" placeholder="NOME SOBRENOME"></div>
+              <div class="form-group"><label>Validade</label><input class="form-input" type="text" placeholder="MM/AA" oninput="maskExpiry(this)"></div>
+              <div class="form-group"><label>CVV</label><input class="form-input" type="text" placeholder="000" maxlength="4"></div>
+              <div class="form-group form-full"><label>Parcelas</label>
+                <select class="form-input" id="installSelect">
+                  <option>1× de R$ 12.499,00 (à vista)</option>
+                  <option>2× de R$ 6.249,50 sem juros</option>
+                  <option>3× de R$ 4.166,33 sem juros</option>
+                  <option>6× de R$ 2.083,17 sem juros</option>
+                  <option>12× de R$ 1.041,58 sem juros</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <div class="pay-panel" id="pay-pix">
+            <div class="pix-box">
+              <div class="qr-visual">
+                <svg viewBox="0 0 100 100" width="100" height="100">
+                  <rect x="10" y="10" width="30" height="30" fill="none" stroke="#1a1a1a" stroke-width="4"/>
+                  <rect x="17" y="17" width="16" height="16" fill="#1a1a1a"/>
+                  <rect x="60" y="10" width="30" height="30" fill="none" stroke="#1a1a1a" stroke-width="4"/>
+                  <rect x="67" y="17" width="16" height="16" fill="#1a1a1a"/>
+                  <rect x="10" y="60" width="30" height="30" fill="none" stroke="#1a1a1a" stroke-width="4"/>
+                  <rect x="17" y="67" width="16" height="16" fill="#1a1a1a"/>
+                  <rect x="60" y="60" width="8" height="8" fill="#1a1a1a"/>
+                  <rect x="72" y="60" width="8" height="8" fill="#1a1a1a"/>
+                  <rect x="84" y="60" width="6" height="8" fill="#1a1a1a"/>
+                  <rect x="60" y="72" width="8" height="8" fill="#1a1a1a"/>
+                  <rect x="72" y="72" width="18" height="8" fill="#1a1a1a"/>
+                  <rect x="60" y="84" width="30" height="6" fill="#1a1a1a"/>
+                  <rect x="45" y="10" width="6" height="6" fill="#1a1a1a"/>
+                  <rect x="45" y="20" width="6" height="6" fill="#1a1a1a"/>
+                  <rect x="45" y="30" width="6" height="6" fill="#1a1a1a"/>
+                  <rect x="10" y="45" width="6" height="6" fill="#1a1a1a"/>
+                  <rect x="20" y="45" width="6" height="6" fill="#1a1a1a"/>
+                  <rect x="30" y="45" width="6" height="6" fill="#1a1a1a"/>
+                  <rect x="45" y="45" width="6" height="6" fill="#1a1a1a"/>
+                </svg>
+              </div>
+              <p style="font-size:15px;font-weight:600;color:var(--gray-800)">Pague via PIX e receba em instantes</p>
+              <p style="font-size:13px;color:var(--gray-600);margin-top:6px">5% de desconto no pagamento via PIX</p>
+              <div class="pix-code" onclick="copyPix()">00020126580014BR.GOV.BCB.PIX013636401d8b-0b5a-4d3e-b...</div>
+              <p style="font-size:11px;color:var(--gray-400);margin-top:8px">Clique no código para copiar</p>
+            </div>
+          </div>
+
+          <div class="pay-panel" id="pay-boleto">
+            <div style="background:var(--gray-50);border-radius:var(--radius-md);padding:32px;text-align:center;border:1px solid var(--gray-100)">
+              <p style="font-size:15px;font-weight:600;color:var(--gray-800)">Boleto Bancário</p>
+              <p style="font-size:13px;color:var(--gray-600);margin-top:8px;line-height:1.6">Vencimento em 3 dias úteis. Após o pagamento, a confirmação ocorre em até 2 dias úteis. Envio após confirmação.</p>
+              <button class="btn-primary" style="margin-top:20px" onclick="showNotification('Boleto gerado com sucesso!')">Gerar Boleto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-summary" id="orderSummary">
+        <div class="order-summary-title">Resumo do Pedido</div>
+        <div id="summaryItems"></div>
+        <hr class="summary-divider">
+        <div class="summary-row"><span>Subtotal</span><span id="summarySubtotal">R$ 0,00</span></div>
+        <div class="summary-row"><span>Frete</span><span id="summaryShipping">Grátis</span></div>
+        <div class="summary-row" id="discountRow" style="display:none;color:#2A9D4A"><span>Desconto PIX</span><span id="summaryDiscount">-R$ 0,00</span></div>
+        <div class="summary-total-row"><span>Total</span><span id="summaryTotal">R$ 0,00</span></div>
+        <button class="place-order-btn" onclick="placeOrder()">Finalizar Compra →</button>
+        <div class="secure-badge">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Pagamento 100% seguro e criptografado
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="checkout-success-view" style="display:none">
+    <div class="success-page">
+      <div class="success-card">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2 class="success-title">Pedido Confirmado!</h2>
+        <p class="success-text">Obrigado pela sua compra. Você receberá um e-mail de confirmação em instantes com todos os detalhes do seu pedido.</p>
+        <div class="order-num">#LPH-2025-00847</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;background:var(--gray-50);border-radius:var(--radius-md);padding:20px;margin-bottom:28px">
+          <div><div style="font-size:11px;color:var(--gray-400);font-weight:700;letter-spacing:1px;text-transform:uppercase">Previsão</div><div style="font-size:15px;font-weight:600;color:var(--gray-800);margin-top:4px">Amanhã</div></div>
+          <div><div style="font-size:11px;color:var(--gray-400);font-weight:700;letter-spacing:1px;text-transform:uppercase">Status</div><div style="font-size:15px;font-weight:600;color:#2A9D4A;margin-top:4px">Em Separação</div></div>
+        </div>
+        <button class="btn-primary" onclick="showPage('home')" style="width:100%">Voltar para a loja</button>
+        <button class="btn-secondary" onclick="showPage('catalog')" style="width:100%;margin-top:10px">Ver mais produtos</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="page-about" class="page">
+  <div class="about-hero" style="max-width:100%">
+    <div style="max-width:560px;margin:0 auto 0 5%">
+      <div class="hero-eyebrow">Nossa História</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,56px);color:var(--gray-800);line-height:1.15;margin-bottom:20px">A loja que transformou a forma de comprar <em style="font-style:italic;color:var(--accent-dark)">iPhones</em> no Brasil.</h1>
+      <p style="font-size:16px;color:var(--gray-600);line-height:1.7">Fundada em 2018 em São Paulo, a LumiPhone nasceu da paixão por tecnologia Apple e da vontade de oferecer uma experiência de compra verdadeiramente premium aos brasileiros.</p>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center">
+      <div class="about-phone-visual"></div>
+    </div>
+  </div>
+  <div class="about-section">
+    <div class="section-header" data-animate>
+      <div class="section-tag">Missão, Visão &amp; Valores</div>
+      <h2 class="section-title">O que nos move todo dia</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-card" data-animate>
+        <div class="about-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <h3 class="about-card-title">Missão</h3>
+        <p class="about-card-text">Democratizar o acesso à tecnologia Apple premium no Brasil com transparência, confiança e a melhor experiência de compra do mercado.</p>
+      </div>
+      <div class="about-card" data-animate style="transition-delay:.1s">
+        <div class="about-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3 class="about-card-title">Visão</h3>
+        <p class="about-card-text">Ser a loja de iPhones mais amada e confiável do Brasil, reconhecida pela excelência no atendimento e qualidade inigualável.</p>
+      </div>
+      <div class="about-card" data-animate style="transition-delay:.2s">
+        <div class="about-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>
+        </div>
+        <h3 class="about-card-title">Valores</h3>
+        <p class="about-card-text">Honestidade, transparência, inovação constante e compromisso genuíno com a satisfação de cada cliente que confia em nós.</p>
+      </div>
+    </div>
+    <div class="stat-row" data-animate>
+      <div class="stat-item"><div class="stat-num">50k+</div><div class="stat-label">Clientes satisfeitos</div></div>
+      <div class="stat-item"><div class="stat-num">4.9★</div><div class="stat-label">Nota média de avaliação</div></div>
+      <div class="stat-item"><div class="stat-num">7 anos</div><div class="stat-label">No mercado</div></div>
+      <div class="stat-item"><div class="stat-num">24h</div><div class="stat-label">Suporte disponível</div></div>
+    </div>
+  </div>
+  <footer style="margin-top:0">
+    <div class="footer-bottom" style="max-width:1280px;margin:0 auto;padding:24px 5%">
+      <span>© 2025 LumiPhone. Todos os direitos reservados.</span>
+      <span>Compra 100% segura</span>
+    </div>
+  </footer>
+</div>
+
+
+<div id="page-contact" class="page">
+  <div class="contact-body">
+    <div class="contact-info">
+      <div class="hero-eyebrow">Fale Conosco</div>
+      <h1 class="contact-info-title">Estamos aqui para te ajudar</h1>
+      <p class="contact-info-text">Nossa equipe especializada está pronta para responder suas dúvidas, ajudar na escolha do iPhone ideal e garantir a melhor experiência de compra.</p>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Endereço</div>
+          <div class="contact-item-value">Av. Paulista, 1578 — Bela Vista, São Paulo – SP</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.1 6.1l1.27-.85a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">WhatsApp</div>
+          <div class="contact-item-value">(11) 99999-0000</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">E-mail</div>
+          <div class="contact-item-value">contato@lumiphone.com.br</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Horário</div>
+          <div class="contact-item-value">Seg–Sex: 9h–18h | Sáb: 10h–14h</div>
+        </div>
+      </div>
+      <div class="map-box">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Av. Paulista, 1578 – São Paulo
+      </div>
+      <div class="social-links">
+        <a class="social-link" href="#" title="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a class="social-link" href="#" title="WhatsApp">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </a>
+        <a class="social-link" href="#" title="Facebook">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a class="social-link" href="#" title="YouTube">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="contact-form-card">
+      <div class="contact-form-title">Envie sua mensagem</div>
+      <div class="contact-form-grid">
+        <div class="form-group"><label>Nome completo</label><input class="form-input" type="text" placeholder="Seu nome"></div>
+        <div class="form-group"><label>E-mail</label><input class="form-input" type="email" placeholder="email@exemplo.com"></div>
+        <div class="form-group"><label>Telefone</label><input class="form-input" type="tel" placeholder="(11) 99999-9999" oninput="maskPhone(this)"></div>
+        <div class="form-group"><label>Assunto</label>
+          <select class="form-input">
+            <option>Dúvida sobre produto</option>
+            <option>Acompanhar pedido</option>
+            <option>Troca ou devolução</option>
+            <option>Garantia</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Mensagem</label><textarea class="form-input" rows="5" placeholder="Descreva como podemos ajudar..." style="resize:vertical"></textarea></div>
+        <button class="btn-primary" style="width:100%;justify-content:center" onclick="sendContact()">Enviar Mensagem</button>
+        <div style="text-align:center;color:var(--gray-400);font-size:13px">— ou —</div>
+        <button class="whatsapp-btn" onclick="window.open('https://wa.me/5511999990000','_blank')">Falar no WhatsApp agora</button>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-bottom" style="max-width:1280px;margin:0 auto;padding:24px 5%">
+      <span>© 2025 LumiPhone. Todos os direitos reservados.</span>
+      <span>Compra 100% segura</span>
+    </div>
+  </footer>
+</div>
+
+
+<div id="page-auth" class="page">
+  <div class="auth-wrapper">
+    <div class="auth-brand">
+      <div class="auth-brand-logo">Lumi<span>Phone</span></div>
+      <p class="auth-brand-tagline">Painel Administrativo</p>
+      <div class="auth-brand-decoration"></div>
+    </div>
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">Entrar</button>
+        <button class="auth-tab" id="tabRegister" onclick="switchAuthTab('register')">Criar Conta</button>
+      </div>
+
+      <div id="authFormLogin">
+        <div class="auth-form-title">Bem-vindo de volta</div>
+        <div class="auth-form-subtitle">Acesse o painel com suas credenciais</div>
+        <div class="form-group" style="margin-top:24px">
+          <label class="form-label">E-mail</label>
+          <input class="form-input" type="email" id="loginEmail" placeholder="admin@lumiphone.com.br">
+        </div>
+        <div class="form-group" style="position:relative">
+          <label class="form-label">Senha</label>
+          <input class="form-input" type="password" id="loginPassword" placeholder="••••••••" style="padding-right:48px">
+          <button class="auth-eye-btn" onclick="togglePassVis('loginPassword',this)" type="button">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <div id="loginError" class="auth-error" style="display:none"></div>
+        <button class="btn-primary" style="width:100%;justify-content:center;margin-top:8px" onclick="handleLogin()">Entrar no Painel</button>
+        <div class="auth-divider"><span>ou</span></div>
+        <button class="auth-link-btn" onclick="switchAuthTab('register')">Nao tem conta? Crie uma agora</button>
+      </div>
+
+
+      <div id="authFormRegister" style="display:none">
+        <div class="auth-form-title">Criar conta Admin</div>
+        <div class="auth-form-subtitle">Preencha os dados para ter acesso ao painel</div>
+        <div class="modal-grid" style="margin-top:24px">
+          <div class="form-group">
+            <label class="form-label">Nome completo *</label>
+            <input class="form-input" type="text" id="regName" placeholder="Seu nome">
+          </div>
+          <div class="form-group">
+            <label class="form-label">E-mail *</label>
+            <input class="form-input" type="email" id="regEmail" placeholder="email@lumiphone.com.br">
+          </div>
+          <div class="form-group" style="position:relative">
+            <label class="form-label">Senha *</label>
+            <input class="form-input" type="password" id="regPassword" placeholder="Min. 6 caracteres" style="padding-right:48px">
+            <button class="auth-eye-btn" onclick="togglePassVis('regPassword',this)" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="form-group" style="position:relative">
+            <label class="form-label">Confirmar Senha *</label>
+            <input class="form-input" type="password" id="regConfirm" placeholder="Repita a senha" style="padding-right:48px">
+            <button class="auth-eye-btn" onclick="togglePassVis('regConfirm',this)" type="button">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="form-group" style="grid-column:1/-1">
+            <label class="form-label">Codigo de acesso Admin *</label>
+            <input class="form-input" type="text" id="regCode" placeholder="Codigo fornecido pelo administrador">
+            <div style="font-size:12px;color:var(--gray-400);margin-top:4px">Use o codigo: <strong>LUMI2025</strong></div>
+          </div>
+        </div>
+        <div id="registerError" class="auth-error" style="display:none"></div>
+        <div id="registerSuccess" class="auth-success" style="display:none"></div>
+        <button class="btn-primary" style="width:100%;justify-content:center;margin-top:8px" onclick="handleRegister()">Criar Conta</button>
+        <div class="auth-divider"><span>ou</span></div>
+        <button class="auth-link-btn" onclick="switchAuthTab('login')">Ja tem conta? Entrar</button>
+      </div>
+    </div>
+  </div>
+  <footer style="margin-top:0">
+    <div class="footer-bottom" style="max-width:1280px;margin:0 auto;padding:24px 5%">
+      <span>© 2025 LumiPhone. Todos os direitos reservados.</span>
+      <span>Acesso Restrito — Area Administrativa</span>
+    </div>
+  </footer>
+</div>
+
+
+<div id="page-admin" class="page">
+  <div class="admin-body">
+    <div class="admin-header">
+      <div>
+        <div class="hero-eyebrow">Painel Administrativo</div>
+        <h1 class="admin-title">Gerenciar Catálogo</h1>
+        <p class="admin-subtitle">Cadastre, edite e remova iPhones do catálogo de revenda.</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px"><div class="admin-user-badge" id="adminUserBadge"></div><button class="btn-primary" onclick="openAddModal()">+ Adicionar Produto</button><button onclick="handleLogout()" style="padding:10px 18px;border-radius:var(--radius-sm);border:1px solid var(--gray-200);background:var(--white);color:var(--gray-600);font-family:inherit;font-size:14px;cursor:pointer">Sair</button></div>
+    </div>
+
+    <div class="admin-stats">
+      <div class="admin-stat-card">
+        <div class="admin-stat-label">Produtos no catálogo</div>
+        <div class="admin-stat-value" id="adminStatTotal">—</div>
+      </div>
+      <div class="admin-stat-card">
+        <div class="admin-stat-label">Preço médio</div>
+        <div class="admin-stat-value" id="adminStatAvg">—</div>
+      </div>
+      <div class="admin-stat-card">
+        <div class="admin-stat-label">Produto mais barato</div>
+        <div class="admin-stat-value" id="adminStatMin">—</div>
+      </div>
+      <div class="admin-stat-card">
+        <div class="admin-stat-label">Produto mais caro</div>
+        <div class="admin-stat-value" id="adminStatMax">—</div>
+      </div>
+    </div>
+
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Imagem</th>
+            <th>Produto</th>
+            <th>Armazenamento</th>
+            <th>Preço</th>
+            <th>Preço Antigo</th>
+            <th>Badge</th>
+            <th>Condição</th>
+            <th>Cor</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="adminTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+  <footer style="margin-top:60px">
+    <div class="footer-bottom" style="max-width:1280px;margin:0 auto;padding:24px 5%">
+      <span>© 2025 LumiPhone. Todos os direitos reservados.</span>
+      <span>Painel Administrativo</span>
+    </div>
+  </footer>
+</div>
+
+<div class="modal-overlay" id="productModal" onclick="closeModal(event)">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">Adicionar Produto</div>
+      <button class="close-btn" onclick="closeProductModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-grid">
+        <div class="form-group">
+          <label class="form-label">Nome do Produto *</label>
+          <input class="form-input" type="text" id="mName" placeholder="ex: iPhone 13 Pro Max">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Modelo (número) *</label>
+          <input class="form-input" type="text" id="mModel" placeholder="ex: 13">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Armazenamento *</label>
+          <select class="form-input" id="mStorage">
+            <option>128 GB</option>
+            <option>256 GB</option>
+            <option>512 GB</option>
+            <option>1 TB</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Condição *</label>
+          <select class="form-input" id="mCondition">
+            <option value="Seminovo">Seminovo</option>
+            <option value="Excelente">Excelente</option>
+            <option value="Bom">Bom Estado</option>
+            <option value="Regular">Regular</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Preço de Venda (R$) *</label>
+          <input class="form-input" type="number" id="mPrice" placeholder="ex: 4500">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Preço Anterior (R$)</label>
+          <input class="form-input" type="number" id="mOldPrice" placeholder="ex: 5999">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Badge / Etiqueta</label>
+          <input class="form-input" type="text" id="mBadge" placeholder="ex: 20% OFF, Seminovo, Destaque">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tipo da Badge</label>
+          <select class="form-input" id="mBadgeClass">
+            <option value="badge-sale">Oferta (azul)</option>
+            <option value="badge-new">Novo (verde)</option>
+            <option value="badge-hot">Popular (laranja)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Chip</label>
+          <input class="form-input" type="text" id="mChip" placeholder="ex: Apple A15 Bionic">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tela</label>
+          <input class="form-input" type="text" id="mTela" placeholder="ex: 6.1&quot; Super Retina XDR">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Câmera</label>
+          <input class="form-input" type="text" id="mCam" placeholder="ex: 12MP + 12MP">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Bateria</label>
+          <input class="form-input" type="text" id="mBat" placeholder="ex: 3.227 mAh">
+        </div>
+        <div class="form-group" style="grid-column:1/-1">
+          <label class="form-label">Cor do Produto *</label>
+          <div class="color-picker-wrap" id="colorPickerWrap"></div>
+          <div style="font-size:12px;color:var(--gray-400);margin-top:6px">Cor selecionada: <strong id="selectedColorLabel">—</strong></div>
+        </div>
+
+        <div class="form-group" style="grid-column:1/-1">
+          <label class="form-label">Fotos do Produto</label>
+          <div class="photo-upload-area" id="photoUploadArea" onclick="document.getElementById('photoFileInput').click()" ondragover="handlePhotoDragOver(event)" ondragleave="handlePhotoDragLeave(event)" ondrop="handlePhotoDrop(event)">
+            <input type="file" id="photoFileInput" accept="image/*" multiple style="display:none" onchange="handlePhotoFileSelect(event)">
+            <div class="photo-upload-icon">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <div class="photo-upload-text">Clique ou arraste fotos aqui</div>
+            <div class="photo-upload-hint">PNG, JPG, WEBP — até 5 MB cada · múltiplas fotos permitidas</div>
+          </div>
+          <div class="photo-preview-grid" id="photoPreviewGrid"></div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-secondary" onclick="closeProductModal()">Cancelar</button>
+        <button class="btn-primary" onclick="saveProduct()">Salvar Produto</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="deleteModal" onclick="closeDeleteModal(event)">
+  <div class="modal-card" style="max-width:420px">
+    <div class="modal-header">
+      <div class="modal-title">Confirmar Exclusão</div>
+      <button class="close-btn" onclick="closeDeleteModal()">✕</button>
+    </div>
+    <div class="modal-body" style="padding:28px 32px">
+      <p style="color:var(--gray-600);margin-bottom:8px">Você está prestes a remover o produto:</p>
+      <p style="font-weight:700;color:var(--gray-800);font-size:18px;margin-bottom:24px" id="deleteProductName">—</p>
+      <p style="color:var(--gray-400);font-size:13px;margin-bottom:28px">Esta ação não pode ser desfeita. O produto será removido do catálogo.</p>
+      <div class="modal-actions">
+        <button class="btn-secondary" onclick="closeDeleteModal()">Cancelar</button>
+        <button class="btn-delete" onclick="confirmDelete()">Excluir Produto</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <div class="cart-title">Meu Carrinho</div>
+    <button class="close-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <span class="cart-empty-icon">
+        <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </span>
+      <p>Seu carrinho está vazio</p>
+      <p style="font-size:13px;margin-top:6px">Adicione produtos e aproveite!</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="coupon-row">
+      <input class="coupon-input" type="text" placeholder="Código de cupom" id="couponInput">
+      <button class="coupon-btn" onclick="applyCoupon()">Aplicar</button>
+    </div>
+    <div class="cart-totals">
+      <div class="cart-total-row"><span>Subtotal</span><span id="cartSubtotal">R$ 0,00</span></div>
+      <div class="cart-total-row"><span>Frete</span><span>Grátis</span></div>
+      <div class="cart-total-row grand"><span>Total</span><span id="cartTotal">R$ 0,00</span></div>
+    </div>
+    <button class="checkout-btn" onclick="closeCart();showPage('checkout')">Finalizar Compra →</button>
+  </div>
+</div>
+
+<div class="notification" id="notification">Produto adicionado ao carrinho!</div>
+
+<script src="react.js"></script>
+</body>
+</html>
