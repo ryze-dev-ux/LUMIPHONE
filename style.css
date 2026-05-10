@@ -170,41 +170,14 @@ nav {
   position: relative;
 }
 .phone-mockup {
-  width: 260px; height: 520px;
-  background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  border-radius: 44px;
-  box-shadow: 0 40px 80px rgba(15,52,96,0.3), 0 0 0 1px rgba(255,255,255,0.1),
-              inset 0 0 0 1px rgba(255,255,255,0.05);
-  position: relative; overflow: hidden;
+  width: 280px; height: 560px;
+  position: relative;
   animation: phoneFloat 6s ease-in-out infinite;
+  filter: drop-shadow(0 40px 60px rgba(15,52,96,0.35));
 }
 @keyframes phoneFloat { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-20px) rotate(-2deg); } }
-.phone-screen {
-  position: absolute; top: 12px; left: 8px; right: 8px; bottom: 12px;
-  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
-  border-radius: 36px; overflow: hidden;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-}
-.phone-screen::before {
-  content: ''; position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
-  width: 100px; height: 28px; background: #0a0a0a;
-  border-radius: 0 0 18px 18px;
-}
-.phone-icon {
-  width: 72px; height: 72px;
-  background: linear-gradient(135deg, var(--powder), var(--accent-dark));
-  border-radius: 16px;
-  display: flex; align-items: center; justify-content: center;
-  filter: drop-shadow(0 0 20px rgba(176,224,230,0.6));
-  animation: iconPulse 3s ease-in-out infinite;
-}
-@keyframes iconPulse { 0%,100% { filter: drop-shadow(0 0 20px rgba(176,224,230,0.4)); } 50% { filter: drop-shadow(0 0 40px rgba(176,224,230,0.8)); } }
-.phone-label {
-  color: rgba(176,224,230,0.9); font-size: 12px; letter-spacing: 3px;
-  text-transform: uppercase; margin-top: 16px; font-weight: 300;
-}
-.phone-price {
-  color: rgba(255,255,255,0.9); font-size: 22px; font-weight: 500; margin-top: 6px;
+.hero-phone-img {
+  width: 100%; height: 100%; object-fit: contain;
 }
 .float-badge {
   position: absolute; background: white; border-radius: var(--radius-md);
@@ -773,7 +746,7 @@ footer {
   .hero-subtitle { margin: 0 auto 40px; }
   .btn-group { justify-content: center; }
   .hero-visual { order: -1; }
-  .phone-mockup { width: 200px; height: 400px; }
+  .phone-mockup { width: 200px; height: 400px; filter: drop-shadow(0 20px 30px rgba(15,52,96,0.3)); }
   .float-badge-1, .float-badge-2 { display: none; }
   .benefits-grid { grid-template-columns: repeat(2, 1fr); }
   .promo-grid { grid-template-columns: 1fr; }
