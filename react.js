@@ -81,30 +81,25 @@ const DEFAULT_PRODUCTS = [
   },
 ];
 
-// Persistência robusta: salva apenas remoções e produtos customizados,
-// mesclando sempre com DEFAULT_PRODUCTS (que vem do código atualizado no GitHub).
+// Persistência: salva o catálogo completo no localStorage.
+// Na primeira visita (sem dados salvos), usa DEFAULT_PRODUCTS.
+// Após qualquer edição/remoção via admin, o catálogo salvo é a fonte da verdade —
+// assim produtos removidos não reaparecem para ninguém.
 function _loadProducts() {
   try {
-    const saved = JSON.parse(localStorage.getItem('lumiProductsV2') || '{}');
-    const removed = new Set(saved.removed || []);
-    const custom = saved.custom || [];
-    // Começa com os defaults, filtrando os removidos
-    const base = DEFAULT_PRODUCTS.filter(p => !removed.has(p.id));
-    // Adiciona os customizados (preservando edições de defaults também)
-    const editedIds = new Set(custom.map(p => p.id));
-    // Remove defaults que foram editados (versão editada está em custom)
-    const baseFiltered = base.filter(p => !editedIds.has(p.id));
-    return [...baseFiltered, ...custom];
-  } catch(e) { return [...DEFAULT_PRODUCTS]; }
+    const saved = localStorage.getItem('lumiProductsV3');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    }
+    // Primeira visita: inicializa com os defaults e já salva
+    const initial = DEFAULT_PRODUCTS.map(p => ({...p}));
+    localStorage.setItem('lumiProductsV3', JSON.stringify(initial));
+    return initial;
+  } catch(e) { return DEFAULT_PRODUCTS.map(p => ({...p})); }
 }
 function saveProducts() {
-  const removed = DEFAULT_PRODUCTS.filter(p => !products.find(x => x.id === p.id)).map(p => p.id);
-  const custom = products.filter(p => {
-    // produto customizado (não existe no DEFAULT) ou default editado
-    const def = DEFAULT_PRODUCTS.find(d => d.id === p.id);
-    return !def || JSON.stringify(def) !== JSON.stringify(p);
-  });
-  localStorage.setItem('lumiProductsV2', JSON.stringify({ removed, custom }));
+  localStorage.setItem('lumiProductsV3', JSON.stringify(products));
 }
 const products = _loadProducts();
 
